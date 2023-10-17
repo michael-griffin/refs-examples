@@ -7,7 +7,7 @@ import { useState, createRef, useRef, useEffect } from "react";
 
 //Possible use for forwardRef?
 //Child input
-
+// import "./UserForm.css";
 
 
 function UserForm() {
@@ -69,12 +69,14 @@ function UserForm() {
   return (
     <>
       <p>Count is: {count}</p>
-      <button onClick={addToCount}>Add 1</button>
-      <button onClick={toggleHidden}>Hide name input</button>
-      <button onClick={targetName}>Focus on name input field</button>
-      <button onClick={badTargetAge}>Bad focus on age input field</button>
+      <div className="buttons">
+            <button onClick={addToCount}>Add 1</button>
+            <button onClick={toggleHidden}>Hide name input</button>
+            <button onClick={targetName}>Focus on name input field</button>
+            <button onClick={badTargetAge}>Bad focus on age input field</button>
+      </div>
 
-      <form>
+      <form className="myForm">
         <label htmlFor="Message">Message</label>
         <input type="text" name="message" />
         {!hidden &&
