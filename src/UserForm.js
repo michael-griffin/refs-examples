@@ -32,7 +32,8 @@ function UserForm() {
 
   useEffect(() => {
     console.log('with createRef, nameRef current is: ', nameRef.current);
-    console.log('with useRef, nameRef current is: ', ageRef.current);
+    console.log('with useRef, ageRef current is: ', ageRef.current);
+    console.log('color input with no forwardref is:', colorRef.current)
   }, [hidden]);
 
   function addToCount() {
@@ -56,11 +57,22 @@ function UserForm() {
     }
   }
 
+  function targetName() {
+    nameRef.current?.focus();
+  }
+
+  // Breaks when current is null
+  function badTargetAge() {
+    ageRef.current.focus();
+  }
+
   return (
     <>
       <p>Count is: {count}</p>
       <button onClick={addToCount}>Add 1</button>
       <button onClick={toggleHidden}>Hide name input</button>
+      <button onClick={targetName}>Focus on name input field</button>
+      <button onClick={badTargetAge}>Bad focus on age input field</button>
 
       <form>
         <label htmlFor="Message">Message</label>
