@@ -1,21 +1,28 @@
 .UserForm {
   margin: 5vh auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5vh;
 }
 
 .UserForm-CodeSnippets {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 400px;
+  gap: 1.5vh;
+  max-width: 400px;
 }
 
 .UserForm-Form {
-  margin: 5vh auto;
+  margin: 0 auto;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 1.5vh;
+}
+
+.UserForm-Form input {
+  width: 400px;
 }
 
 .UserForm-Buttons {
@@ -24,11 +31,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  row-gap: 1vw;
+  column-gap: 1vh;
 }
 
 .UserForm-State {
-  margin: 2.5vh auto;
+  margin: 0 auto;
   max-width: 80vw;
 }
 
@@ -38,7 +46,7 @@
 }
 
 .UserForm-Refs {
-  margin: 2.5vh auto;
+  margin: 0 auto;
   max-width: 80vw;
 }
 

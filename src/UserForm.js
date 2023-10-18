@@ -22,17 +22,17 @@ function UserForm() {
 
   // Console log current reference objects
   function logRefs() {
-    console.log('nameRef, initialized with createRef, is: ', nameRef);
-    console.log('ageRef, initialized with useRef, is: ', ageRef);
+    console.log('nameRef, called with createRef, is: ', nameRef);
+    console.log('ageRef, called with useRef, is: ', ageRef);
   };
 
   // Compare current reference objects with most recent reference objects
   function compareRefs() {
-    setComparingRefs(true);
+    setComparingRefs(prev => !prev);
   }
 
   // Add new (or existing) reference objects to state.
-  function addReferenceObject() {
+  function addRefsToState() {
     setNameRefs(prevList => [...prevList, nameRef]);
     setAgeRefs(prevList => [...prevList, ageRef]);
   }
@@ -59,10 +59,17 @@ function UserForm() {
         <p>Objects in ageRefs: <b>{ageRefs.length}</b></p>
       </div>
 
+        {comparingRefs &&
+          <div className="UserForm-Refs">
+            <p>Current nameRef object is the same as previous nameRef object: <b>{`${nameRefs[nameRefs.length - 1] === nameRefs[nameRefs.length - 2]}`}</b></p>
+            <p>Current ageRef object is the same as previous ageRef object: <b>{`${ageRefs[ageRefs.length - 1] === ageRefs[ageRefs.length - 2]}`}</b></p>
+          </div>
+        }
+
       <div className="UserForm-Buttons">
-        <button className="btn btn-primary" onClick={addReferenceObject}>Rerender</button>
         <button className="btn btn-primary" onClick={logRefs}>Console.log current refs</button>
-        {nameRefs.length > 1 && ageRefs.length > 1 && <button className="btn btn-primary" onClick={compareRefs}>Compare current refs to most recent refs</button>}
+        <button className="btn btn-primary" onClick={addRefsToState}>Add current refs to state</button>
+        {nameRefs.length > 1 && ageRefs.length > 1 && <button className="btn btn-primary" onClick={compareRefs}>{!comparingRefs ? "Compare current refs to most recent refs in state" : "Hide comparison"}</button>}
         <button className="btn btn-primary" onClick={toggleHidden}>{!hidden ? "Hide" : "Show"} inputs</button>
         <button className="btn btn-primary" onClick={focusOnName}>Focus on name input</button>
         <button className={`btn ${!hidden ? "btn-primary" : "btn-danger"}`} onClick={focusOnAge}>Focus on age input</button>
@@ -82,13 +89,6 @@ function UserForm() {
             </div>
           </>}
       </form>
-
-      {comparingRefs &&
-        <div className="UserForm-Refs">
-          <p>Current nameRef object is the same as previous nameRef object: <b>{`${nameRefs[nameRefs.length - 1] === nameRefs[nameRefs.length - 2]}`}</b></p>
-          <p>Current ageRef object is the same as previous ageRef object: <b>{`${ageRefs[ageRefs.length - 1] === ageRefs[ageRefs.length - 2]}`}</b></p>
-        </div>
-      }
     </div>
 
   );
