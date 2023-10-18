@@ -1,15 +1,48 @@
+.UserForm {
+  margin: 5vh auto;
+}
 
-.buttons {
+.UserForm-CodeSnippets {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.UserForm-Form {
+  margin: 5vh auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+
+.UserForm-Buttons {
+  margin: 0 auto;
+  max-width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
 
+.UserForm-State {
+  margin: 2.5vh auto;
+  max-width: 80vw;
+}
 
-.myForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+.UserForm-State p {
+  padding: 0;
+  margin: 0;
+}
+
+.UserForm-Refs {
+  margin: 2.5vh auto;
+  max-width: 80vw;
+}
+
+.UserForm-Refs p {
+  padding: 0;
+  margin: 0;
 }

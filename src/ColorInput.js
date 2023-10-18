@@ -1,13 +1,8 @@
-
-
-
-// import React, {forwardRef} from "react";
-//Made to demonstrate what happens with no Forward Ref
-const ColorInput = () => (
-  // ref={ref}
+/** Favorite color input component. Not wrapped in forwardRef. */
+const ColorInput = (props) => ( // App crashes when trying to pass ref down as a prop
   <>
     <label htmlFor="color">Favorite Color</label>
-    <input  type="text" name="color" />
+    <input {...props} className="form-control" type="text" name="color" />
   </>
 );
 
