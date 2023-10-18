@@ -61,8 +61,8 @@ function UserForm() {
 
         {comparingRefs &&
           <div className="UserForm-Refs">
-            <p>nameRef === nameRefs[nameRefs.length- 1]: <b>{`${nameRefs[nameRefs.length - 1] === nameRefs[nameRefs.length - 2]}`}</b></p>
-            <p>ageRef === ageRefs[ageRefs.length- 1]: <b>{`${ageRefs[ageRefs.length - 1] === ageRefs[ageRefs.length - 2]}`}</b></p>
+            <p>nameRef === nameRefs[nameRefs.length- 1]: <b>{`${nameRef === nameRefs[nameRefs.length - 1]}`}</b></p>
+            <p>ageRef === ageRefs[ageRefs.length- 1]: <b>{`${ageRef === ageRefs[ageRefs.length - 1]}`}</b></p>
           </div>
         }
 
